@@ -1,0 +1,49 @@
+site_name: OpenShift POC
+site_description: OpenShift 4.20 Proof of Concept with Advanced Cluster Management
+repo_url: https://github.com/stephennimmo/ocp-poc
+repo_name: stephennimmo/ocp-poc
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+
+nav:
+  - Home: index.md
+  - Prerequisites: prerequisites.md
+  - Installation:
+      - Overview: installation/index.md
+      - Prepare the Bastion Host: installation/bastion.md
+      - Install Single Node OpenShift: installation/sno.md
+      - Install Advanced Cluster Management: installation/acm.md
+      - Provision the POC Cluster: installation/provision.md
+      - Access the Cluster: installation/access.md
+  - Teardown: teardown.md
