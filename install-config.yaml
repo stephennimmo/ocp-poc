@@ -1,0 +1,29 @@
+apiVersion: v1
+baseDomain: example.com
+metadata:
+  name: ocp-poc
+networking:
+  networkType: OVNKubernetes
+  clusterNetwork:
+    - cidr: 10.128.0.0/14
+      hostPrefix: 23
+  serviceNetwork:
+    - 172.30.0.0/16
+  machineNetwork:
+    - cidr: 10.0.0.0/28
+compute:
+  - name: worker
+    replicas: 3
+    architecture: amd64
+controlPlane:
+  name: master
+  replicas: 3
+  architecture: amd64
+platform:
+  baremetal:
+    apiVIPs:
+      - 10.0.0.2
+    ingressVIPs:
+      - 10.0.0.3
+pullSecret: '<PULL_SECRET>'
+sshKey: '<SSH_PUBLIC_KEY>'
