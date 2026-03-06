@@ -16,7 +16,7 @@ compute:
     replicas: 3
     architecture: amd64
 controlPlane:
-  name: master
+  name: control-plane
   replicas: 3
   architecture: amd64
 platform:

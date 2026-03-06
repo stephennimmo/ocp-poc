@@ -12,15 +12,16 @@ sudo dnf install -y bash-completion curl jq bind-utils
 
 ```bash
 OCP_VERSION=stable-4.20
-INSTALLER_DIR=~/ocp-installer
-mkdir -p ${INSTALLER_DIR}
+TMPDIR=$(mktemp -d)
 
-curl -L "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OCP_VERSION}/openshift-install-linux.tar.gz" | tar xzf - -C ${INSTALLER_DIR}
-curl -L "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OCP_VERSION}/openshift-client-linux.tar.gz" | tar xzf - -C ${INSTALLER_DIR}
+curl -L "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OCP_VERSION}/openshift-install-linux.tar.gz" | tar xzf - -C ${TMPDIR}
+curl -L "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OCP_VERSION}/openshift-client-linux.tar.gz" | tar xzf - -C ${TMPDIR}
 
-sudo cp ${INSTALLER_DIR}/oc /usr/local/bin/
-sudo cp ${INSTALLER_DIR}/kubectl /usr/local/bin/
-sudo cp ${INSTALLER_DIR}/openshift-install /usr/local/bin/
+sudo cp ${TMPDIR}/oc /usr/local/bin/
+sudo cp ${TMPDIR}/kubectl /usr/local/bin/
+sudo cp ${TMPDIR}/openshift-install /usr/local/bin/
+
+rm -rf ${TMPDIR}
 ```
 
 Verify:
@@ -35,7 +36,7 @@ oc version --client
 Ensure an SSH key pair exists:
 
 ```bash
-ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
+ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N ""
 ```
 
 ## Pull Secret

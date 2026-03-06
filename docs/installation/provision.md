@@ -28,7 +28,7 @@ oc create secret generic pull-secret \
 Create a secret for each bare metal host's BMC credentials:
 
 ```bash
-for host in master-0 master-1 master-2 worker-0 worker-1 worker-2; do
+for host in control-plane-0 control-plane-1 control-plane-2 worker-0 worker-1 worker-2; do
   oc create secret generic ${host}-bmc-secret \
     -n ocp-poc \
     --from-literal=username=<BMC_USERNAME> \
@@ -41,32 +41,32 @@ done
 
 ## Register the Bare Metal Hosts
 
-Create a `BareMetalHost` resource for each node. Example for `master-0`:
+Create a `BareMetalHost` resource for each node. Example for `control-plane-0`:
 
 ```yaml
 apiVersion: metal3.io/v1alpha1
 kind: BareMetalHost
 metadata:
-  name: master-0
+  name: control-plane-0
   namespace: ocp-poc
   labels:
     infraenvs.agent-install.openshift.io: ocp-poc
   annotations:
-    bmac.agent-install.openshift.io/hostname: master-0
-    bmac.agent-install.openshift.io/role: master
+    bmac.agent-install.openshift.io/hostname: control-plane-0
+    bmac.agent-install.openshift.io/role: control-plane
 spec:
   online: true
   bootMACAddress: <MAC_ADDRESS>
   bmc:
     address: idrac-virtualmedia://<BMC_IP>/redfish/v1/Systems/System.Embedded.1
-    credentialsName: master-0-bmc-secret
+    credentialsName: control-plane-0-bmc-secret
     disableCertificateVerification: true
 ```
 
 !!! note
     The `bmc.address` format depends on your hardware. Common formats include `idrac-virtualmedia://`, `ilo5-virtualmedia://`, and `redfish-virtualmedia://`.
 
-Repeat for all control plane and worker nodes, updating the name, MAC address, BMC IP, credentials secret, and role (`master` or `worker`) accordingly.
+Repeat for all control plane and worker nodes, updating the name, MAC address, BMC IP, credentials secret, and role (`control-plane` or `worker`) accordingly.
 
 ## Create the AgentClusterInstall
 

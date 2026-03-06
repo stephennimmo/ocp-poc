@@ -29,7 +29,7 @@ compute:
   - name: worker
     replicas: 0
 controlPlane:
-  name: master
+  name: control-plane
   replicas: 1
   architecture: amd64
 platform:
@@ -39,7 +39,7 @@ sshKey: '<SSH_PUBLIC_KEY>'
 ```
 
 - Replace `<PULL_SECRET>` with the contents of `~/.pull-secret`
-- Replace `<SSH_PUBLIC_KEY>` with the contents of `~/.ssh/id_rsa.pub`
+- Replace `<SSH_PUBLIC_KEY>` with the contents of `~/.ssh/id_ed25519.pub`
 - Update `baseDomain` and `metadata.name` to match your environment
 
 ## Generate the Agent ISO
@@ -54,7 +54,7 @@ metadata:
 rendezvousIP: <SNO_IP>
 hosts:
   - hostname: hub
-    role: master
+    role: control-plane
     interfaces:
       - name: <INTERFACE_NAME>
         macAddress: <MAC_ADDRESS>

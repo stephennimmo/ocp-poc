@@ -4,8 +4,8 @@ metadata:
   name: ocp-poc
 rendezvousIP: 10.0.0.4
 hosts:
-  - hostname: master-0
-    role: master
+  - hostname: control-plane-0
+    role: control-plane
     interfaces:
       - name: enp1s0
         macAddress: 52:54:00:aa:bb:00
@@ -31,8 +31,8 @@ hosts:
           - destination: 0.0.0.0/0
             next-hop-address: 10.0.0.1
             next-hop-interface: enp1s0
-  - hostname: master-1
-    role: master
+  - hostname: control-plane-1
+    role: control-plane
     interfaces:
       - name: enp1s0
         macAddress: 52:54:00:aa:bb:01
@@ -58,8 +58,8 @@ hosts:
           - destination: 0.0.0.0/0
             next-hop-address: 10.0.0.1
             next-hop-interface: enp1s0
-  - hostname: master-2
-    role: master
+  - hostname: control-plane-2
+    role: control-plane
     interfaces:
       - name: enp1s0
         macAddress: 52:54:00:aa:bb:02
