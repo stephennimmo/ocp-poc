@@ -81,7 +81,7 @@ spec:
   clusterDeploymentRef:
     name: ocp-poc
   imageSetRef:
-    name: openshift-4.20
+    name: openshift-{{ ocp_version }}
   networking:
     clusterNetwork:
       - cidr: 10.128.0.0/14

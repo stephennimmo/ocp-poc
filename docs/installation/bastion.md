@@ -11,7 +11,7 @@ sudo dnf install -y bash-completion curl jq bind-utils
 ## Download the OpenShift CLI
 
 ```bash
-OCP_VERSION=stable-4.20
+OCP_VERSION=stable-{{ ocp_version }}
 TMPDIR=$(mktemp -d)
 
 curl -L "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OCP_VERSION}/openshift-install-linux.tar.gz" | tar xzf - -C ${TMPDIR}

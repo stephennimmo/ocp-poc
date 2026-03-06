@@ -1,5 +1,5 @@
 site_name: OpenShift POC
-site_description: OpenShift 4.20 Proof of Concept with Advanced Cluster Management
+site_description: OpenShift Proof of Concept with Advanced Cluster Management
 repo_url: https://github.com/stephennimmo/ocp-poc
 repo_name: stephennimmo/ocp-poc
 
@@ -23,6 +23,13 @@ theme:
     - navigation.expand
     - navigation.top
     - content.code.copy
+
+plugins:
+  - search
+  - macros
+
+extra:
+  ocp_version: "4.20"
 
 extra_css:
   - stylesheets/extra.css
