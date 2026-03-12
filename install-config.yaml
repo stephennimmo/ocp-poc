@@ -22,8 +22,8 @@ controlPlane:
 platform:
   baremetal:
     apiVIPs:
-      - 10.0.0.2
+      - 10.0.0.7
     ingressVIPs:
-      - 10.0.0.3
+      - 10.0.0.8
 pullSecret: '<PULL_SECRET>'
 sshKey: '<SSH_PUBLIC_KEY>'

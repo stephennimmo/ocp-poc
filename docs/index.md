@@ -1,6 +1,6 @@
 # OpenShift POC
 
-[Red Hat OpenShift Container Platform](https://www.redhat.com/en/technologies/cloud-computing/openshift) (OCP) proof of concept (POC) deployment using [Red Hat Advanced Cluster Management](https://www.redhat.com/en/technologies/management/advanced-cluster-management) (ACM) to provision and manage the POC cluster. A Single Node OpenShift (SNO) instance acts as the hub cluster with ACM installed. ACM uses BMC access to provision the POC cluster on bare metal nodes, mimicking real-world patterns for cluster deployments. This install would support both container and virtual machine based workloads. 
+Red Hat OpenShift Container Platform ([OCP](https://www.redhat.com/en/technologies/cloud-computing/openshift)) proof of concept (POC) deployment using Red Hat Advanced Cluster Management ([ACM](https://www.redhat.com/en/technologies/management/advanced-cluster-management)) to provision and manage the POC cluster using BMC. A Single Node OpenShift ([SNO](https://docs.redhat.com/en/documentation/openshift_container_platform/{{ ocp_version }}/html/installing_on_a_single_node/index)) instance acts as the hub cluster with ACM installed. ACM uses BMC access to provision the POC cluster on bare metal nodes, mimicking real-world patterns for cluster deployments. This install would support both container and virtual machine based workloads. 
 
 ## Getting Started
 

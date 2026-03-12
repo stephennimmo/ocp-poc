@@ -94,9 +94,9 @@ spec:
     controlPlaneAgents: 3
     workerAgents: 3
   apiVIPs:
-    - 10.0.0.2
+    - 10.0.0.7
   ingressVIPs:
-    - 10.0.0.3
+    - 10.0.0.8
   sshPublicKey: '<SSH_PUBLIC_KEY>'
 EOF
 ```
